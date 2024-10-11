@@ -8,7 +8,7 @@ app.get('/', (c) => {
 });
 
 app.post('/github-deployment', async (c) => {
-    const { token, chatId } = c.req.query();
+    const { token, chatId, topicId } = c.req.query();
     const body = await c.req.json();
     const { deployment_status = {}, repository = {} } = body;
     const { state, description, environment, target_url, updated_at } = deployment_status;
@@ -33,6 +33,7 @@ ${description}
         token,
         chatId,
         message,
+        topicId: Number(topicId),
     });
 
     if (res.ok) {
