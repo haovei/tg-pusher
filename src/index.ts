@@ -13,8 +13,6 @@ app.post('/github-deployment', async (c) => {
     const { deployment_status = {}, repository = {} } = body;
     const { state, description, environment, target_url, updated_at } = deployment_status;
 
-    console.log('Github deployment payload:', body);
-
     let message = '';
 
     if (state === 'success') {
