@@ -11,6 +11,8 @@ app.post('/github-deployment', async (c) => {
     const { token, chatId } = c.req.query();
     const body = await c.req.json();
 
+    console.log('Github deployment payload:', body);
+
     const res = await sendTGMessage({
         token,
         chatId,
