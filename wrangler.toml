@@ -1,4 +1,4 @@
-name = "tgpush-github-deployment"
+name = "tgpush"
 main = "src/index.ts"
 compatibility_date = "2024-10-11"
 compatibility_flags = [ "nodejs_compat" ]
