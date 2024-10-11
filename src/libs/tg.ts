@@ -21,6 +21,7 @@ class Telegram {
             body: JSON.stringify({
                 chat_id: this.chatId,
                 text: message,
+                parse_mode: 'Markdown',
             }),
             signal: controller.signal,
         });
@@ -50,6 +51,7 @@ export default async function ({ token, chatId, message }: { token: string; chat
             message: 'Message sent successfully',
         };
     } catch (error: any) {
+        console.error(error);
         return {
             ok: false,
             message: error.message,
