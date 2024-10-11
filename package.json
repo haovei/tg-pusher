@@ -1,5 +1,8 @@
 {
-    "name": "tgpush-github-deployment",
+    "name": "tg-pusher",
+    "version": "1.0.0",
+    "description": "A Cloudflare Worker to push GitHub deployments to Telegram",
+    "main": "index.js",
     "scripts": {
         "dev": "wrangler dev",
         "deploy": "wrangler deploy --minify"
