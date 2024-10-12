@@ -10,8 +10,12 @@ app.get('/', (c) => {
 app.post('/github-deployment', async (c) => {
     const { token, chatId, topicId } = c.req.query();
     const body = await c.req.json();
-    const { deployment_status = {}, repository = {} } = body;
-    const { state, description, environment, target_url, updated_at } = deployment_status;
+    const { deployment_status, repository = {} } = body;
+    const { state, description, environment, target_url, updated_at } = deployment_status ?? {};
+
+    if (!deployment_status) {
+        return c.text('Pong', 200);
+    }
 
     let message = '';
 
