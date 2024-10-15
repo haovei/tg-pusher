@@ -15,10 +15,13 @@ class Telegram {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 seconds timeout
 
-        const params: { chat_id: string | number; text: string; parse_mode: string; message_thread_id?: number } = {
+        const params: any = {
             chat_id: this.chatId,
             text: message,
             parse_mode: 'Markdown',
+            link_preview_options: JSON.stringify({
+                is_disabled: true,
+            }),
         };
         if (this.topicId) {
             params.message_thread_id = this.topicId;
