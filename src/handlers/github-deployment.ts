@@ -15,12 +15,16 @@ const handleGithubDeployment = async (c: Context) => {
 
     if (state === 'success') {
         message = `
-👏 "${repository.full_name}" deployed to "${environment}" successfully
+🎉 "${repository.full_name}" deployed to "${environment}" successfully
+⏰ ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}
+
 ${target_url}
 `;
     } else {
         message = `
 ❌ "${repository.full_name}" deployed to "${environment}" failed
+⏰ ${new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}
+
 ${description}
 `;
     }
